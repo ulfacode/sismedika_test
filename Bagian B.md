@@ -1,0 +1,31 @@
+**Test Case Login**  
+
+| Test Case ID | Deskripsi                                               | Langkah                                                                                                                                     | Input                                                    | Expected Result                                                                 |
+|--------------|----------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|----------------------------------------------------------------------------------|
+| TC-01        | Login dengan kredensial yang valid                      | 1. buka halaman login<br>2. input email valid<br>3. input password valid<br>4. klik tombol "Login"                                          | email: vtest@gmail.com<br>password: 12345678Pp.           | Berhasil login dan diarahkan ke dashboard                                       |
+| TC-02        | Login dengan email tidak terdaftar                      | 1. buka halaman login<br>2. input email tidak terdaftar<br>3. input password terdaftar<br>4. klik tombol "Login"                            | email: untest@gmail.com<br>password: 12345678Pp.          | Menampilkan error "Email tidak terdaftar" pada field email                      |
+| TC-03        | Login dengan password salah                             | 1. buka halaman login<br>2. input email terdaftar<br>3. input password salah<br>4. klik tombol "Login"                                      | email: vtest@gmail.com<br>password: 12345678Pp            | Menampilkan error "Email/password tidak sesuai"                                 |
+| TC-04        | Cek validasi field email tidak diisi                    | 1. buka halaman login<br>2. biarkan field email kosong<br>3. input password terdaftar<br>4. klik tombol "Login"                             | email: (kosong)<br>password: 12345678Pp.                  | Menampilkan error "Email harus diisi" pada field email                          |
+| TC-05        | Cek validasi field password tidak diisi                 | 1. buka halaman login<br>2. input email terdaftar<br>3. biarkan field password kosong<br>4. klik tombol "Login"                             | email: vtest@gmail.com<br>password: (kosong)              | Menampilkan error "Password harus diisi" pada field password                    |
+| TC-06        | Klik tombol login tanpa isi email dan password          | 1. buka halaman login<br>2. biarkan field email kosong<br>3. biarkan field password kosong<br>4. klik tombol "Login"                        | email: (kosong)<br>password: (kosong)                     | "Menampilkan error 'Email harus diisi' pada field email<br>Menampilkan error 'Password harus diisi' pada field password" |
+| TC-07        | Login dengan menekan enter di keyboard                  | 1. buka halaman login<br>2. input email valid<br>3. input password valid<br>4. tekan tombol enter di keyboard                               | email: vtest@gmail.com<br>password: 12345678Pp.           | Berhasil login dan diarahkan ke dashboard                                       |
+| TC-08        | Paste di field email dan password                       | 1. buka halaman login<br>2. paste email<br>3. paste password                                                                                | email: vtest@gmail.com<br>password: 12345678Pp.           | Field email dan password menerima copy paste                                     |
+| TC-09        | Validasi password saat kurang dari 8 karakter           | 1. buka halaman login<br>2. input password kurang dari 8 karakter                                                                           | password: 1234567                                          | Menampilkan error "Minimal 8 karakter" pada field password                      |
+| TC-10        | Validasi password saat tepat 8 karakter                 | 1. buka halaman login<br>2. input password = 8 karakter                                                                                      | password: 12345678                                         | Tidak ada error yang ditampilkan di field password                              |
+
+  
+**Skenario Negative Testing**  
+
+| Test Scenario ID | Skenario                         | Tujuan                                                                 | Expected Result                                                       |
+|------------------|----------------------------------|------------------------------------------------------------------------|------------------------------------------------------------------------|
+| TS-01            | Login dengan email tidak terdaftar | Memastikan sistem menolak login jika email tidak ditemukan di database | Menampilkan error "Email tidak terdaftar" pada field email            |
+| TS-02            | Login dengan password salah       | Memastikan sistem tidak mengizinkan login jika password tidak sesuai    | Menampilkan error "Email/password tidak sesuai"                       |
+| TS-03            | Login tanpa mengisi field         | Memastikan sistem memberikan validasi input kosong                      | Menampilkan error harus diisi pada field yang kosong                  |
+
+  
+**Skenario Boundary Testing Field Password**  
+
+| Test Scenario ID | Skenario                         | Tujuan                                                                                   | Expected Result                                                  |
+|------------------|----------------------------------|------------------------------------------------------------------------------------------|------------------------------------------------------------------|
+| TS-04            | Password kurang dari 8 karakter  | Memastikan sistem menampilkan error jika panjang password kurang dari minimal karakter   | Menampilkan error "Minimal 8 karakter" pada field password      |
+| TS-05            | Password tepat 8 karakter        | Memastikan sistem tidak menampilkan error jika panjang password sama dengan minimal karakter | Tidak ada error yang ditampilkan di field password              |
